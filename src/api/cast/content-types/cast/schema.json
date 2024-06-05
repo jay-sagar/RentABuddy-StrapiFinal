@@ -1,0 +1,67 @@
+{
+  "kind": "collectionType",
+  "collectionName": "casts",
+  "info": {
+    "singularName": "cast",
+    "pluralName": "casts",
+    "displayName": "Cast",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Name": {
+      "type": "string",
+      "required": true
+    },
+    "About": {
+      "type": "blocks",
+      "required": false
+    },
+    "CostPerHour": {
+      "type": "integer",
+      "required": true
+    },
+    "categories": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::category.category",
+      "mappedBy": "casts"
+    },
+    "Image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "Premium": {
+      "type": "boolean",
+      "required": false
+    },
+    "Height": {
+      "type": "decimal",
+      "required": false
+    },
+    "appointment": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::appointment.appointment",
+      "mappedBy": "cast"
+    },
+    "Gender": {
+      "type": "boolean",
+      "required": false
+    },
+    "Age": {
+      "type": "integer",
+      "required": false
+    }
+  }
+}
